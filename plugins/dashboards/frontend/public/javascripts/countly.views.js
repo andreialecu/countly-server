@@ -666,6 +666,14 @@
                         doc.share_with = "none";
                     }
                 }
+                else {
+                    var allowPublicDashboards = countlyGlobal.allow_public_dashboards !== false;
+                    if (!allowPublicDashboards &&
+                        (doc.__action === "create" || doc.__action === "duplicate") &&
+                        doc.share_with === "all-users") {
+                        doc.share_with = "";
+                    }
+                }
             },
             onClose: function() {
                 this.$store.dispatch("countlyDashboards/requests/drawerOpenStatus", false);
