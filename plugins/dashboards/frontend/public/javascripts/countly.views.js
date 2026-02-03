@@ -512,12 +512,9 @@
                 ];
 
                 var allowPublicDashboards = countlyGlobal.allow_public_dashboards !== false;
-                var sharingOptions = allowPublicDashboards ? allSharingOptions : allSharingOptions.filter(function(option) {
-                    return option.value !== "all-users";
-                });
-
                 return {
-                    sharingOptions: sharingOptions
+                    sharingOptions: allSharingOptions,
+                    isPublicDisabled: !allowPublicDashboards
                 };
             },
             canShare: function() {

@@ -697,7 +697,7 @@ var ejs = require("ejs");
 
             var allowPublicDashboards = plugins.getConfig("dashboards").allow_public_dashboards;
             if (shareWith === "all-users" && allowPublicDashboards === false) {
-                common.returnMessage(params, 400, {code: "dashboards.public-dashboards-disabled"}, null, true);
+                common.returnMessage(params, 400, 'Public dashboards are disabled');
                 return true;
             }
 
@@ -995,7 +995,7 @@ var ejs = require("ejs");
 
             var allowPublicDashboards = plugins.getConfig("dashboards").allow_public_dashboards;
             if (shareWith === "all-users" && allowPublicDashboards === false) {
-                common.returnMessage(params, 400, {code: "dashboards.public-dashboards-disabled"}, null, true);
+                common.returnMessage(params, 400, 'Public dashboards are disabled');
                 return true;
             }
 

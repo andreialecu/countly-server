@@ -716,20 +716,8 @@
                     return id;
                 }).catch(function(e) {
                     log(e);
-                    var message = "";
-
-                    /*
-                        Try to surface a more helpful error message when the
-                        backend explicitly rejects public dashboards.
-                        We rely on a machine-readable error code from the API,
-                        not on the English error text.
-                    */
-                    if (e && e.responseJSON && e.responseJSON.code === "dashboards.public-dashboards-disabled") {
-                        message = jQuery.i18n.map["dashboards.public-dashboards-disabled"] || "Public dashboards are disabled";
-                    }
-
                     CountlyHelpers.notify({
-                        message: message || (jQuery.i18n.map["dashboards.general-create-error"] || "Something went wrong while creating the dashboard!"),
+                        message: "Something went wrong while creating the dashboard!",
                         type: "error"
                     });
 
